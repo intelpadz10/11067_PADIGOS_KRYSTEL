@@ -40,15 +40,16 @@ class _AuthScreenState extends State<AuthScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: const Text('Login'),
-        backgroundColor: const Color(0xFF303030),
+        backgroundColor: Color.fromARGB(255, 172, 52, 228),
       ),
-      backgroundColor: Colors.grey[400],
+      backgroundColor: Color.fromARGB(255, 205, 227, 242),
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
             child: Container(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.all(15),
               child: Form(
                 key: _formKey,
                 onChanged: () {
@@ -61,10 +62,11 @@ class _AuthScreenState extends State<AuthScreen> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(15),
                       child: Text(prompts),
                     ),
                     TextFormField(
+                      textAlign: TextAlign.center,
                       decoration: const InputDecoration(hintText: 'Username'),
                       controller: _unCon,
                       validator: (value) {
@@ -75,6 +77,7 @@ class _AuthScreenState extends State<AuthScreen> {
                       },
                     ),
                     TextFormField(
+                      textAlign: TextAlign.center,
                       obscureText: true,
                       decoration: const InputDecoration(
                         hintText: 'Password',
@@ -89,7 +92,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     ),
                     Flexible(
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 32),
+                        padding: const EdgeInsets.symmetric(vertical: 50),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
@@ -110,8 +113,8 @@ class _AuthScreenState extends State<AuthScreen> {
                                   ),
                                   primary: (_formKey.currentState?.validate() ??
                                           false)
-                                      ? const Color(0xFF303030)
-                                      : Colors.grey),
+                                      ? Color.fromARGB(255, 199, 147, 15)
+                                      : Color.fromARGB(255, 139, 136, 136)),
                               child: const Text('Register'),
                             ),
                             ElevatedButton(
@@ -134,8 +137,8 @@ class _AuthScreenState extends State<AuthScreen> {
                                   ),
                                   primary: (_formKey.currentState?.validate() ??
                                           false)
-                                      ? const Color(0xFF303030)
-                                      : Colors.grey),
+                                      ? Color.fromARGB(255, 199, 147, 15)
+                                      : Color.fromARGB(255, 139, 136, 136)),
                               child: const Text('Log in'),
                             ),
                           ],
