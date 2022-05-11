@@ -5,12 +5,12 @@ import 'package:weather/weather.dart';
 class DataService {
   WeatherFactory wf = WeatherFactory('66ab015a839c71743db6df9f29ce2f08');
 
-  Future<Weather> getWeather(String cityName) async {
+  Future<Weather> weather(String cityName) async {
     Weather data = await wf.currentWeatherByCityName(cityName);
     return data;
   }
 
-  Future<List<Weather>> getFiveDayWeather(String cityName) async {
+  Future<List<Weather>> fiveDayWeatherForecast(String cityName) async {
     List<Weather> fiveDayForecast =
         await wf.fiveDayForecastByCityName(cityName);
 

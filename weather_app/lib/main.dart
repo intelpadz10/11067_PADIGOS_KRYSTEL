@@ -132,9 +132,20 @@ class _HomePageState extends State<HomePage> {
                           style: TextStyle(fontSize: 15, color: Colors.white),
                         ),
                       if (_response != null)
-                        Image.network(
-                          _weatherResponse.iconUrl('${_response?.weatherIcon}'),
-                          scale: .8,
+                        if (_response?.weatherIcon != null)
+                          Image.network(
+                            _weatherResponse
+                                .iconUrl('${_response?.weatherIcon}'),
+                            scale: .6,
+                          ),
+                      if (_response != null)
+                        Text(
+                          '${_response?.date!.year}'
+                                  ' - '
+                                  '${_response?.date!.month}' +
+                              ' - ' '${_response?.date!.day}',
+                          style: TextStyle(fontSize: 12, color: Colors.white),
+                          textAlign: TextAlign.center,
                         ),
                       if (_response != null)
                         Row(
@@ -167,207 +178,221 @@ class _HomePageState extends State<HomePage> {
                             color: Color.fromARGB(121, 255, 255, 255),
                           ),
                         ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          if (_response != null)
-                            Container(
-                              // margin: EdgeInsets.all(5),
-                              height: 100,
-                              width: 120,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Text(
-                                    '${_fiveDay?[2].date!.year}'
-                                            ' - '
-                                            '${_fiveDay?[2].date!.month}' +
-                                        ' - ' '${_fiveDay?[2].date!.day}',
-                                    style: TextStyle(
-                                        fontSize: 12, color: Colors.white),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  Image.network(
-                                    _weatherResponse
-                                        .iconUrl('${_fiveDay?[2].weatherIcon}'),
-                                    scale: 2,
-                                  ),
-                                  Text(
-                                    '${_fiveDay?[2].humidity}%',
-                                    style: TextStyle(
-                                        fontSize: 12, color: Colors.white),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ],
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            if (_response != null)
+                              Container(
+                                // margin: EdgeInsets.all(5),
+                                height: 100,
+                                width: 120,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Text(
+                                      '${_fiveDay?[6].date!.year}'
+                                              ' - '
+                                              '${_fiveDay?[6].date!.month}' +
+                                          ' - ' '${_fiveDay?[6].date!.day}',
+                                      style: TextStyle(
+                                          fontSize: 12, color: Colors.white),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    Text(
+                                      _weatherResponse.iconUrl(
+                                          '${_fiveDay?[6].weatherIcon.toString()}'),
+                                      style: TextStyle(
+                                          fontSize: 12, color: Colors.white),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    Image.network(
+                                      _weatherResponse.iconUrl(
+                                          '${_fiveDay?[6].weatherIcon.toString()}'),
+                                      scale: 1.5,
+                                    ),
+                                    Text(
+                                      '${_fiveDay?[6].temperature?.celsius?.roundToDouble()}°',
+                                      style: TextStyle(
+                                          fontSize: 12, color: Colors.white),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ],
+                                ),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(20),
+                                      bottomRight: Radius.circular(20)),
+                                  // color: Color.fromARGB(122, 72, 73, 73),
+                                ),
                               ),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(20),
-                                    bottomRight: Radius.circular(20)),
-                                // color: Color.fromARGB(122, 72, 73, 73),
+                            if (_response != null)
+                              Container(
+                                // margin: EdgeInsets.all(5),
+                                height: 100,
+                                width: 120,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Text(
+                                      '${_fiveDay?[14].date!.year}'
+                                              ' - '
+                                              '${_fiveDay?[14].date!.month}' +
+                                          ' - ' '${_fiveDay?[14].date!.day}',
+                                      style: TextStyle(
+                                          fontSize: 12, color: Colors.white),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    Image.network(
+                                      _weatherResponse.iconUrl(
+                                          '${_fiveDay?[14].weatherIcon.toString()}'),
+                                      scale: 1.5,
+                                    ),
+                                    Text(
+                                      '${_fiveDay?[14].temperature?.celsius?.roundToDouble()}°',
+                                      style: TextStyle(
+                                          fontSize: 12, color: Colors.white),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ],
+                                ),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(20),
+                                      bottomRight: Radius.circular(20)),
+                                  // color: Color.fromARGB(122, 72, 73, 73),
+                                ),
                               ),
-                            ),
-                          if (_response != null)
-                            Container(
-                              // margin: EdgeInsets.all(5),
-                              height: 100,
-                              width: 120,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Text(
-                                    '${_fiveDay?[10].date!.year}'
-                                            ' - '
-                                            '${_fiveDay?[10].date!.month}' +
-                                        ' - ' '${_fiveDay?[10].date!.day}',
-                                    style: TextStyle(
-                                        fontSize: 12, color: Colors.white),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  Image.network(
-                                    _weatherResponse.iconUrl(
-                                        '${_fiveDay?[10].weatherIcon}'),
-                                    scale: 2,
-                                  ),
-                                  Text(
-                                    '${_fiveDay?[10].humidity}%',
-                                    style: TextStyle(
-                                        fontSize: 12, color: Colors.white),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ],
+                            if (_response != null)
+                              Container(
+                                // margin: EdgeInsets.all(5),
+                                height: 100,
+                                width: 120,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Text(
+                                      '${_fiveDay?[22].date!.year}'
+                                              ' - '
+                                              '${_fiveDay?[22].date!.month}' +
+                                          ' - ' '${_fiveDay?[22].date!.day}',
+                                      style: TextStyle(
+                                          fontSize: 12, color: Colors.white),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    Image.network(
+                                      _weatherResponse.iconUrl(
+                                          '${_fiveDay?[22].weatherIcon.toString()}'),
+                                      scale: 1.5,
+                                    ),
+                                    Text(
+                                      '${_fiveDay?[22].temperature?.celsius?.roundToDouble()}°',
+                                      style: TextStyle(
+                                          fontSize: 12, color: Colors.white),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ],
+                                ),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(20),
+                                      bottomRight: Radius.circular(20)),
+                                  // color: Color.fromARGB(122, 72, 73, 73),
+                                ),
                               ),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(20),
-                                    bottomRight: Radius.circular(20)),
-                                // color: Color.fromARGB(122, 72, 73, 73),
-                              ),
-                            ),
-                          if (_response != null)
-                            Container(
-                              // margin: EdgeInsets.all(5),
-                              height: 100,
-                              width: 120,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Text(
-                                    '${_fiveDay?[18].date!.year}'
-                                            ' - '
-                                            '${_fiveDay?[18].date!.month}' +
-                                        ' - ' '${_fiveDay?[18].date!.day}',
-                                    style: TextStyle(
-                                        fontSize: 12, color: Colors.white),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  Image.network(
-                                    _weatherResponse.iconUrl(
-                                        '${_fiveDay?[18].weatherIcon}'),
-                                    scale: 2,
-                                  ),
-                                  Text(
-                                    '${_fiveDay?[18].humidity}%',
-                                    style: TextStyle(
-                                        fontSize: 12, color: Colors.white),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ],
-                              ),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(20),
-                                    bottomRight: Radius.circular(20)),
-                                // color: Color.fromARGB(122, 72, 73, 73),
-                              ),
-                            ),
-                        ],
-                      ),
-                      Container(
-                        width: 400,
-                        height: 2,
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(121, 255, 255, 255),
+                          ],
                         ),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          if (_response != null)
-                            Container(
-                              // margin: EdgeInsets.all(5),
-                              height: 100,
-                              width: 120,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Text(
-                                    '${_fiveDay?[26].date!.year}'
-                                            ' - '
-                                            '${_fiveDay?[26].date!.month}' +
-                                        ' - ' '${_fiveDay?[26].date!.day}',
-                                    style: TextStyle(
-                                        fontSize: 12, color: Colors.white),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  Image.network(
-                                    _weatherResponse.iconUrl(
-                                        '${_fiveDay?[26].weatherIcon}'),
-                                    scale: 2,
-                                  ),
-                                  Text(
-                                    '${_fiveDay?[26].humidity}%',
-                                    style: TextStyle(
-                                        fontSize: 12, color: Colors.white),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ],
+                      if (_response != null)
+                        Container(
+                          width: 400,
+                          height: 2,
+                          decoration: BoxDecoration(
+                            color: Color.fromARGB(121, 255, 255, 255),
+                          ),
+                        ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            if (_response != null)
+                              Container(
+                                // margin: EdgeInsets.all(5),
+                                height: 100,
+                                width: 120,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Text(
+                                      '${_fiveDay?[30].date!.year}'
+                                              ' - '
+                                              '${_fiveDay?[30].date!.month}' +
+                                          ' - ' '${_fiveDay?[30].date!.day}',
+                                      style: TextStyle(
+                                          fontSize: 12, color: Colors.white),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    Image.network(
+                                      _weatherResponse.iconUrl(
+                                          '${_fiveDay?[30].weatherIcon}'),
+                                      scale: 1.5,
+                                    ),
+                                    Text(
+                                      '${_fiveDay?[30].temperature?.celsius?.roundToDouble()}°',
+                                      style: TextStyle(
+                                          fontSize: 12, color: Colors.white),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ],
+                                ),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(20),
+                                      bottomRight: Radius.circular(20)),
+                                  // color: Color.fromARGB(122, 72, 73, 73),
+                                ),
                               ),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(20),
-                                    bottomRight: Radius.circular(20)),
-                                // color: Color.fromARGB(122, 72, 73, 73),
+                            if (_response != null)
+                              Container(
+                                // margin: EdgeInsets.all(5),
+                                height: 100,
+                                width: 120,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Text(
+                                      '${_fiveDay?[38].date!.year}'
+                                              ' - '
+                                              '${_fiveDay?[38].date!.month}' +
+                                          ' - ' '${_fiveDay?[38].date!.day}',
+                                      style: TextStyle(
+                                          fontSize: 12, color: Colors.white),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    Image.network(
+                                      _weatherResponse.iconUrl(
+                                          '${_fiveDay?[38].weatherIcon.toString()}'),
+                                      scale: 1.5,
+                                    ),
+                                    Text(
+                                      '${_fiveDay?[38].temperature?.celsius?.roundToDouble()}°',
+                                      style: TextStyle(
+                                          fontSize: 12, color: Colors.white),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ],
+                                ),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(20),
+                                      bottomRight: Radius.circular(20)),
+                                  // color: Color.fromARGB(122, 72, 73, 73),
+                                ),
                               ),
-                            ),
-                          if (_response != null)
-                            Container(
-                              // margin: EdgeInsets.all(5),
-                              height: 100,
-                              width: 120,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Text(
-                                    '${_fiveDay?[34].date!.year}'
-                                            ' - '
-                                            '${_fiveDay?[34].date!.month}' +
-                                        ' - ' '${_fiveDay?[34].date!.day}',
-                                    style: TextStyle(
-                                        fontSize: 12, color: Colors.white),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  Image.network(
-                                    _weatherResponse.iconUrl(
-                                        '${_fiveDay?[34].weatherIcon}'),
-                                    scale: 2,
-                                  ),
-                                  Text(
-                                    '${_fiveDay?[34].humidity}%',
-                                    style: TextStyle(
-                                        fontSize: 12, color: Colors.white),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ],
-                              ),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(20),
-                                    bottomRight: Radius.circular(20)),
-                                // color: Color.fromARGB(122, 72, 73, 73),
-                              ),
-                            ),
-                        ],
+                          ],
+                        ),
                       ),
                       Column(
                         children: <Widget>[
@@ -466,12 +491,13 @@ class _HomePageState extends State<HomePage> {
   }
 
   getSearch() async {
-    final response = await _dataService.getWeather(_searchContent.text);
+    final response = await _dataService.weather(_searchContent.text);
     setState(() => _response = response);
   }
 
   getFiveDay() async {
-    final response = await _dataService.getFiveDayWeather(_searchContent.text);
+    final response =
+        await _dataService.fiveDayWeatherForecast(_searchContent.text);
     setState(() => _fiveDay = response);
   }
 }

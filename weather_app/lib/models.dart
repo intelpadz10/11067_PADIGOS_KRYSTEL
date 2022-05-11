@@ -1,5 +1,5 @@
 class WeatherResponse {
-  String iconUrl(String iconCode) {
-    return 'https://openweathermap.org/img/wn/$iconCode@2x.png';
+  String iconUrl(iconCode) {
+    return 'http://openweathermap.org/img/wn/$iconCode@2x.png';
   }
 }
